@@ -289,7 +289,8 @@ class main_listener implements EventSubscriberInterface
 			return;
 		}
 		$page_data = $event['page_data'];
-		$page_data['MESSAGE'] = preg_replace('#\[mention\](.*?)\[\/mention\]#uis', '@\\1', $page_data['MESSAGE']);
+		//$page_data['MESSAGE'] = preg_replace('#\[mention\](.*?)\[\/mention\]#uis', '@\\1', $page_data['MESSAGE']);
+        $page_data['MESSAGE'] = preg_replace('#\[mention\](.*?)\[\/mention\]#uis', '\\1', $page_data['MESSAGE']);
 		$event['page_data'] = $page_data;
 	}
 
